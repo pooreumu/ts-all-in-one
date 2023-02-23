@@ -45,3 +45,28 @@ const obj: { lat: number; lon: number } = { lat: 37.5, lon: 127.5 };
 const arr: string[] = ["123", "456"];
 const arr2: Array<number> = [123, 456];
 const arr3: [number, number, number] = [123, 456, 789];
+
+/**
+ * noImplicitAny가 false일 때 array에 타입을 지정하지 않으면 never가 돼서 아래처럼 값을 넣을 수가 없게된다
+ * 꼭 지정을 해주자
+ * never 좋은 글 https://ui.toast.com/weekly-pick/ko_20220323
+ */
+
+try {
+  const array = []; // noImplicitAny가 false일 때
+  array.push(0);
+} catch (error) {
+  error;
+}
+
+/**
+ * !를 쓰면 있다고 단언한다.
+ * 근데 안좋은 방식이다
+ * head3 처름 쓰자
+ */
+const head1 = document.querySelector("#head"); // Element || null
+const head2 = document.querySelector("#head")!; // Element
+const head3 = document.querySelector("#head");
+if (head3) {
+  head3.innerHTML = "hello";
+}
