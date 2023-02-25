@@ -70,3 +70,27 @@ const head3 = document.querySelector("#head");
 if (head3) {
   head3.innerHTML = "hello";
 }
+
+/**
+ * 자동완성 돼서 좋음
+ */
+type World = "world" | "hell";
+
+const world: World = "world";
+
+const world1 = `hello ${world}`;
+
+// type Greeting = 'hello world'
+type Greeting = `hello ${World}`;
+const greeting: Greeting = "hello hell";
+
+/**
+ * 첫번째는 막아주는 데
+ * 두번째는 못막아준다.
+ */
+
+const tuple: [string, number] = ["1", 1];
+
+tuple[2] = "hello";
+
+tuple.push("hello");
