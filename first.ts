@@ -94,3 +94,33 @@ const tuple: [string, number] = ["1", 1];
 tuple[2] = "hello";
 
 tuple.push("hello");
+
+/**
+ * 여러개의 변수들을 하나로 묶고 싶을 때
+ */
+const enum EDirection {
+  Up = 3,
+  Down,
+  Left,
+  Right,
+}
+
+const up = EDirection.Up;
+const left = EDirection.Left;
+
+/**
+ * as const를 붙이면 readonly + 타입추론 범위 좁혀줌
+ */
+const ODirection = {
+  Up: 1,
+  Down: 2,
+  Left: 3,
+  Right: 4,
+} as const;
+
+/**
+ * enum 하기 싫을 때 Value를 쓴다. 그냥 객체의 밸류들의 타입을 가져오는 것과 같다
+ */
+const objjj = { a: "123", b: "hello", c: "world" } as const;
+type Key = keyof typeof objjj;
+type Value = (typeof objjj)[keyof typeof objjj];
