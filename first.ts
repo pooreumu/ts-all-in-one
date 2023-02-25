@@ -131,3 +131,24 @@ type Value = (typeof objjj)[keyof typeof objjj];
 
 type A = { hello: "world" } & { zero: "cho" };
 const aaa: A = { hello: "world", zero: "cho" };
+
+/**
+ * 타입이랑 인터페이스 둘다 extends 할 수 있다.
+ * 인터페이스는 같은 이름으로 여러번 선언할 수 있다. 선언할 때마다 합쳐진다.
+ * 인터페이스를 사용하는게 확장성이 좋다.
+ */
+
+type Animal = { breath: true };
+type Poyouryu = Animal & { breed: true };
+type Human = Poyouryu & { think: true };
+
+interface AAA {
+  breath: true;
+}
+
+interface BBB extends AAA {
+  breed: true;
+}
+
+const bbb: BBB = { breath: true, breed: true };
+const zerocho: Human = { breath: true, breed: true, think: true };
