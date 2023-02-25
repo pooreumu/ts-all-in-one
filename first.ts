@@ -124,3 +124,10 @@ const ODirection = {
 const objjj = { a: "123", b: "hello", c: "world" } as const;
 type Key = keyof typeof objjj;
 type Value = (typeof objjj)[keyof typeof objjj];
+
+/**
+ * intersection은 둘다 만족 하면 됨
+ */
+
+type A = { hello: "world" } & { zero: "cho" };
+const aaa: A = { hello: "world", zero: "cho" };
